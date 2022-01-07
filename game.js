@@ -7,7 +7,8 @@ var level = 0
 
 
 
-$(document).on("keypress touchstart", function() { // Starts the game on a key being pressed
+$(document).on("keypress touchstart", function(e) { // Starts the game on a key being pressed
+  e.preventDefault();
   while (gameStarted == "n") {
     $("#level-title").html("Level " + String(level));
     nextSequence();

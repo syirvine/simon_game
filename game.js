@@ -6,24 +6,14 @@ var gameStarted = "n"
 var level = 0
 
 
-document.addEventListener('touchmove', function(e) {
-    e.preventDefault();
-    var touch = e.touches[0];
-    alert(touch.pageX + " - " + touch.pageY);
-    while (gameStarted == "n") {
-      $("#level-title").html("Level " + String(level));
-      nextSequence();
-      gameStarted = "y";
-}, false);
 
-
-// $(document).on("keypress", function() { // Starts the game on a key being pressed
-//   while (gameStarted == "n") {
-//     $("#level-title").html("Level " + String(level));
-//     nextSequence();
-//     gameStarted = "y"; // Once a game is started, pressing any button no longer has an effect
-//   }
-// });
+$(document).on("keypress touchstart", function() { // Starts the game on a key being pressed
+  while (gameStarted == "n") {
+    $("#level-title").html("Level " + String(level));
+    nextSequence();
+    gameStarted = "y"; // Once a game is started, pressing any button no longer has an effect
+  }
+});
 
 
 for (var i = 0; i < numberOfButtons; i++) {
